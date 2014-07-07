@@ -8,7 +8,7 @@ class Plugin_Jquery_Wysiwyg {
 	public static function Activate($wysiwyg) {
 	
 		switch(strtolower($wysiwyg)) {
-			case 'tinymce':
+                        case 'tinymce':
 			case 'tiny_mce':
 			case 'tiny mce':
 				self::_Activate_Tiny_MCE();
@@ -19,7 +19,7 @@ class Plugin_Jquery_Wysiwyg {
 	private static function _Activate_Tiny_MCE($settings=NULL) {
 		$htm = Ashtree_Html_Page::instance();
 		
-		$htm->jss = ASH_LIB . 'tiny_mce/jquery.tinymce.js';
+		$htm->jss = ASH_LIB . 'TinyMCE/jquery.tinymce.min.js';
 		
 		switch(strtolower($settings)) {
 			case 'default':
@@ -29,7 +29,7 @@ class Plugin_Jquery_Wysiwyg {
 		
 		$htm->jquery = "
 			$('.rte').tinymce({
-				script_url : '" . ASH_LIB . "tiny_mce/tiny_mce.js',
+				script_url : '" . ASH_LIB . "TinyMCE/tinymce.min.js',
 				{$retrieved_settings},
 				content_css : 'css/content.css'
 			});
